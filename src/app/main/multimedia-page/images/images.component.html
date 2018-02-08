@@ -1,0 +1,66 @@
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1">
+    <h3 class="grey-text text-darken-2" *ngIf="show">{{imageDetails.title}}</h3>
+    <div class="col-sm-6">
+      <div class="divider"></div>
+      <h5>Description</h5>
+      <blockquote>
+         <p id="desc" class="grey-text text-darken-1">
+        </p>
+        <span class="red-text" *ngIf="show && imageDetails.level == 1"> <i class="material-icons">star</i> </span>
+        <span class="red-text" *ngIf="show && imageDetails.level == 2"> <i class="material-icons">star</i><i class="material-icons">star</i> </span>
+        <span class="red-text" *ngIf="show && imageDetails.level == 3"> <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i> </span>
+        <br>
+        <span class="new badge red left" data-badge-caption="" *ngIf="show">{{imageDetails.category}}</span> <br>
+        <span class="red-text" *ngIf="show"><i class="tiny material-icons" >access_time</i> {{imageDetails.date}}</span>
+        <!-- share button -->
+        <br><br>
+        <a class="btn-floating red" ceiboShare [googlePlus]="{url: socialImageURL+imageDetails.multimediaId}" (click)="pointsUpdate(5)" *ngIf="show"><img src="assets/logo/icon-gplus.png" width="40px;"></a>        &nbsp;
+        <a class="btn-floating indigo" ceiboShare [facebook]="{u: socialImageURL+imageDetails.multimediaId}" (click)="pointsUpdate(5)" *ngIf="show"><img src="assets/logo/icon-fb.png" width="40px;"></a>
+      </blockquote>
+    </div>
+    <div class="col-sm-6">
+      <img src="{{imgURL}}" class="hoverable responsive-img z-depth-2">
+    </div>
+
+  </div>
+</div>
+
+
+<!-- code for previous comments starts from here -->
+<div class="row">
+  <div class="col-sm-10 col-sm-offset-1" *ngIf="show">
+    <h5>Comments...</h5>
+    <div class="divider"></div>
+    <br>
+    <div class="card-panel white lighten-5 z-depth-1" *ngFor="let comment of imageDetails.comments">
+      <div class="row valign-wrapper">
+        <div class="col-sm-2">
+          <a class="btn-floating btn-large waves-effect waves-light red z-depth-5">{{comment.userName.charAt(0)}}</a>
+          <!-- notice the "circle" class -->
+        </div>
+        <div class="col-sm-10">
+          <span class="black-text"> <a>{{comment.userName}}</a> <br>{{comment.comment}}</span>
+          <p class="right">{{comment.date.substring(0,10)}}<br>{{comment.date.substring(11,19)}}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- Comment option starts  -->
+    <div style="min-height:250px; height:auto; padding:20px;" class="z-depth-5">
+      <h5>We value your comments!</h5>
+      <div class="row">
+        <div class="input-field">
+          <textarea id="textarea1" class="materialize-textarea" [(ngModel)]="comment" [disabled]="!_data.isLoggedIn"></textarea>
+          <label for="textarea1">Comment here!</label>
+          <button class="btn waves-effect waves-light red right" type="submit" name="action" (click)="postComment()" [disabled]="!_data.isLoggedIn">Comment
+        <i class="material-icons right">send</i></button>
+          <p class="red-text" *ngIf="!_data.isLoggedIn">** login to comment!</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

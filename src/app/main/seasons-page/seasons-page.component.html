@@ -1,0 +1,39 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align">Seasons History</h4>
+  </div>
+</div>
+
+<div class="row">
+  <br>
+  <div class="col s10 offset-s1">
+    <h4 class="grey-text text-darken-2">Seasons Since 1950</h4>
+    <div class="col s12">
+      <blockquote>
+        <p>The World Drivers' Championship is awarded to the most successful Formula One driver over a season, as determined
+          by a points system based on Grand Prix results, and has been awarded since the first Formula One season in 1950.
+          The World Constructors' Championship is awarded to the most successful Formula One constructor over a season, as
+          determined by a points system based on Grand Prix results.</p>
+        <p>The Constructors' Championship was first awarded in 1958. Different car make/engine combinations are considered to
+          be different constructors for the purposes of the Championship. Constructors' Championship points are calculated
+          by adding points scored in each race by any driver for that constructor. Up until 1979, most seasons saw only the
+          highest-scoring driver in each race for each constructor contributing points towards the Championship. On only
+          ten occasions has the World Constructors' Champion team not contained the World Drivers' Champion for that season.
+        </p>
+      </blockquote>
+    </div>
+    <!--<div class="col s3">-->
+    <!-- add any side image -->
+    <!--</div>-->
+  </div>
+</div>
+<div class="row">
+  <div class="col s10 offset-s1">
+    <h4 class="grey-text text-darken-2">Season List</h4>
+    <ng-container *ngFor="let season of seasonsList">
+      <div class="col s4 m3 l2 center-align">
+         <a [routerLink]="['/seasons-history','season-details',season]">{{season}}</a>
+      </div>
+    </ng-container>
+  </div>
+</div>

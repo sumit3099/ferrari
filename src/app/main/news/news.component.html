@@ -1,0 +1,42 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align">News</h4>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col s10 offset-s1">
+    <h3>Latest News</h3>
+    <div class="col s12 m4" *ngFor="let news of newsData | paginate:{itemsPerPage:9,currentPage:p}">
+      <div class="card  hoverable small">
+        <div class="card-image">
+          <a [routerLink]="['/news','details',news._id]">
+                        <img src="{{news.imageUrl}}">
+                    </a>
+        </div>
+        <div class="card-content">
+          <p class="title">{{news.title}}</p>
+          <br>
+          <p class="truncate left author"> By {{news.author}} </p>
+          <div style="position: absolute; right:5px; bottom: 5px;">
+            <div class="fixed-action-btn" style="position:absolute;right:0px;bottom:0px; z-index:1;">
+              <a class="btn-floating red">
+              <i class="material-icons">share</i>
+            </a>
+              <ul>
+                <li><a class="btn-floating red" ceiboShare [googlePlus]="{url: socialNewsURL+news._id}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-gplus.png"></a></li>
+                <li><a class="btn-floating indigo" ceiboShare [facebook]="{u: socialNewsURL+news._id}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-fb.png"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+    </div>
+
+  </div>
+
+  <div class="col s10 offset-s1">
+    <pagination-controls class="center" (pageChange)="p=$event"></pagination-controls>
+  </div>
+</div>

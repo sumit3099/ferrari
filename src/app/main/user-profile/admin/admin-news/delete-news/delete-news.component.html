@@ -1,0 +1,84 @@
+<!--<div class="row">
+    <div class="col s12 ofsset-s1">
+        <div class="field">
+            <input type="text" name="title" placeholder="Search news By  Title" [value]="newsSearch" (keyup)="filtersearch($event)">
+
+        </div>
+        <ul class="collection ">
+            <ng-container *ngFor="let news of newsData">
+                <li class="collection-item avatar col sm6 md4 lg3">
+                    <img src="{{news.imageUrl}}" alt="" class="circle">
+                    <span class="title">{{news.title}}</span>
+                    <p>{{news.author}} <br> </p>
+                    <input type="checkbox" class="filled-in" id="{{news._id}}" (change)="addnewss($event)" />
+                    <label for="{{news._id}}"></label>
+                </li>
+            </ng-container>
+        </ul>
+        <div class="center" *ngIf="buttonValue">
+            <a class="waves-effect waves-light btn red darken-1 " (click)="buttonValue=false">Delete</a>
+        </div>
+        <div class="center" *ngIf="!buttonValue">
+            <a class="waves-effect waves-light btn red " (click)="buttonValue=true">Cancel</a>
+            <a class="waves-effect waves-light btn red " (click)="deletenewss()"> confirm Delete</a>
+        </div>
+
+        <!--<ng-container *ngFor="let media of multimediaVideoData">
+            <div class="row">
+                
+    </div>
+    </ng-container>-->
+<!--</div>
+</div>-->
+
+
+
+
+
+<div class="row">
+    <div class="col s12">
+        <div class="field">
+            <input type="text" name="title" placeholder="Search News By  Title" [value]="newsSearch" (keyup)="filtersearch($event)">
+        </div>
+        <div class="row">
+            <ng-container *ngFor="let news of newsData">
+                <div class="col s12 m6 l6">
+                    <div class="card-panel grey lighten-5 z-depth-1">
+                        <div class="row valign-wrapper">
+                            <div class="col s5">
+                                <a [routerLink]="['/news','details',news._id]" target="_blank">
+                                    <img src="{{news.imageUrl}}" alt="" class="responsive-img">
+                                </a>
+                            </div>
+                            <div class="col s6">
+                                <p class="black-text truncate">
+                                    <a [routerLink]="['/news','details',news._id]" target="_blank">{{news.title}}</a>
+                                </p>
+                                <p class="black-text">
+                                    <span class="red-text">Author :</span> {{news.author}}
+                                </p>
+                                <!--<p class="black-text">
+                  <span class="red-text"> Category :</span> {{media.category}}
+                </p>-->
+                            </div>
+                            <div class="col s1">
+                                <input type="checkbox" class="filled-in" id="{{news._id}}" (change)="addnewss($event)" />
+                                <label for="{{news._id}}"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="row">
+            <div class="center" *ngIf="buttonValue">
+                <a class="waves-effect waves-light btn" (click)="buttonValue=false">Delete</a>
+            </div>
+            <div class="center" *ngIf="!buttonValue">
+                <a class="waves-effect waves-light btn red " (click)="buttonValue=true">Cancel</a>
+                <a class="waves-effect waves-light btn red " (click)="deletenewss()"> confirm Delete</a>
+            </div>
+        </div>
+    </div>
+</div>

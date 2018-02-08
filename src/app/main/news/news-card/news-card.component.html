@@ -1,0 +1,21 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align">{{newsDetails.title}}</h4>
+    <h6 class="white-text center-align">By : {{newsDetails.author}}</h6>
+  </div>
+</div>
+<div class="row" style="padding-top:20px;">
+  <div class="col s10 offset-s1">
+    <h5>{{newsDetails.title}}</h5>
+    <div class="divider"></div><br><br>
+    <div class="col s12 m12 l8">
+      <p id="desc"></p>
+      <br><br>
+      <a class="btn-floating red" ceiboShare [googlePlus]="{url: socialNewsURL}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-gplus.png" width="40px;"></a>      &nbsp;
+      <a class="btn-floating indigo" ceiboShare [facebook]="{u: socialNewsURL}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-fb.png" width="40px;"></a>
+    </div>
+    <div class="col s12 m12 l4">
+      <img class="right" src="{{newsDetails.imageUrl}}" class="responsive-img materialboxed">
+    </div>
+  </div>
+</div>

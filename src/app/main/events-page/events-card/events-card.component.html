@@ -1,0 +1,20 @@
+<div class="blog-card hoverable">
+  <div class="photo photo1" [ngStyle]="{ 'background-image': 'url(' + event.imgURL + ')'}">
+  </div>
+  <!-- add image url from api here -->
+  <ul class="details" style="text-align:left;">
+    <li><i class="tiny material-icons">date_range</i> {{event.date.substring(0,10)}}</li>
+    <li><i class="tiny material-icons">schedule</i> {{event.date.substring(11,19)}}</li>
+    <li><i class="tiny material-icons">location_on</i> {{event.location.locality}}</li>
+  </ul>
+  <div class="description">
+    <h5 class="truncate">{{event.title}}</h5>
+    <span class="truncate">{{event.location.locality}}, {{event.location.country}}</span>
+    <p class="truncate">{{event.description}}</p>
+    <br><br>
+    <a [routerLink]="['/upcoming-events','event',event._id]">
+        Read More
+    </a>
+  </div>
+</div>
+<br><br>

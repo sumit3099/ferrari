@@ -1,0 +1,68 @@
+<form [formGroup]="productForm" id="productForm" (ngSubmit)="productUpload(productForm.value)" enctype="multipart/form-data">
+    <div class="field">
+        <label for="product Title">
+          Title:
+        </label>
+        <input type="text" name="title" placeholder="Product Title" required formControlName="title">
+        <div *ngIf="(productForm.controls.title.invalid && productForm.controls.title.touched)" class="col s12 small text-danger right">
+            product should have title
+        </div>
+    </div>
+    <div class="field">
+        <label for="product Description">
+         Product Description:
+        </label>
+        <textarea name="productDescription" placeholder="Product Description" formControlName="productDescription" required></textarea>
+        <div *ngIf="(productForm.controls.productDescription.invalid && productForm.controls.productDescription.touched)" class="col s12 small text-danger right">
+            product should have description
+        </div>
+        * Use &lt;br&gt; for Line Break
+    </div>
+    <div class="field">
+        <label for="category">
+        Category:
+        </label>
+        <!--<input type="text" name="category" placeholder="category" formControlName="category" required>-->
+        <!--<input list="category" name="category" formControlName="category" placeholder="select Product category">-->
+        <select id="category" placeholder=" select category" formControlName="category">
+      <option value="shirt">Shirt</option>
+      <option value="cap">Cap</option>
+      <option value="jersey">Jersy</option>
+    </select>
+        <div *ngIf="(productForm.controls.category.invalid && productForm.controls.category.touched)" class="col s12 small text-danger right">
+            product should have category
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="product">
+        Product:
+        </label>
+        <input type="file" accept="image/*" id="product" (change)="checkproduct($event)">
+    </div>
+    <div class="field">
+        <label for="Size">
+        Product Size:
+        </label>
+        <p><input type="checkbox" class="filled-in" id="small" (change)="changeSizeMerchandise($event)" />
+            <label for="small">Small</label></p>
+        <p><input type="checkbox" class="filled-in" id="medium" (change)="changeSizeMerchandise($event)" />
+            <label for="medium">Medium</label></p>
+        <p><input type="checkbox" class="filled-in" id="large" (change)="changeSizeMerchandise($event)" />
+            <label for="large">Large</label></p>
+        <p><input type="checkbox" class="filled-in" id="xlarge" (change)="changeSizeMerchandise($event)" />
+            <label for="xlarge">Xlarge</label></p>
+    </div><br>
+    <div class="field">
+        <label for="Price">
+          Price:
+        </label>
+        <input type="text" name="price" placeholder="Enter Price" required formControlName="price">
+        <div *ngIf="(productForm.controls.price.invalid && productForm.controls.price.touched)" class="col s12 small text-danger right">
+            product should have title
+        </div>
+    </div>
+    <div class="box center">
+        <input type="submit" class="btn" value="Add Product" [disabled]="!productForm.valid" id="btn">
+    </div>
+</form>

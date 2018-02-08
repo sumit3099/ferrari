@@ -1,0 +1,12 @@
+.leader {
+  border-radius: 35px 35px 35px 35px;
+  background: burlywood;
+  border: 5px;
+  border-block-end-color: black;
+  margin: 5px;
+  padding: 5px;
+}
+
+a{
+  text-dectoration:none;
+}

@@ -1,0 +1,86 @@
+<div class="row check">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h4 class="grey-text text-darken-2">F1 Top Drivers</h4>
+        <div class="col-md-4 col-sm-6" *ngFor="let winner of winnerDetails">
+            <div class="card-container z-depth-2">
+                <div class="card">
+                    <div class="front">
+                        <div class="cover">
+                            <!-- put cover image for drivers -->
+                        </div>
+                        <div class="user">
+                            <app-driver-image [driverURL]="winner.Driver.url"></app-driver-image>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h3 class="name">{{winner.Driver.givenName}} {{winner.Driver.familyName}}</h3>
+                                <p class="profession">{{winner.Driver.dateOfBirth}}</p>
+                                <p class="profession">{{winner.Driver.nationality}}</p>
+                                <p class="text-center"> <b>{{winner.Driver.code}}</b> - <b>{{winner.Driver.permanentNumber}}</b></p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!-- end front panel -->
+                    <div class="back">
+                        <div class="header">
+                            <h5 class="motto">{{winner.Driver.givenName}} {{winner.Driver.familyName}}</h5>
+                        </div>
+                        <div class="content">
+                            <div class="main">
+                                <h4 class="text-center"><a [routerLink]="['/teams',winner.Constructors[0].constructorId]">{{winner.Constructors[0].name}}</a></h4>
+                                <p class="text-center">{{winner.Constructors[0].nationality}}</p>
+
+                                <div class="stats-container">
+                                    <div class="stats">
+                                        <h4>{{winner.points}}</h4>
+                                        <p>
+                                            Points
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>{{winner.position}}</h4>
+                                        <p>
+                                            Position
+                                        </p>
+                                    </div>
+                                    <div class="stats">
+                                        <h4>{{winner.wins}}</h4>
+                                        <p>
+                                            Wins
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="footer">
+                            <div class="social-links text-center">
+                                <a [routerLink]="['/Drivers','driver_detail',winner.Driver.driverId]" class="wikipedia">View Driver</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end back panel -->
+                </div>
+                <!-- end card -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $().ready(function() {
+        $('[rel="tooltip"]').tooltip();
+
+    });
+
+    function rotateCard(btn) {
+        var $card = $(btn).closest('.card-container');
+        console.log($card);
+        if ($card.hasClass('hover')) {
+            $card.removeClass('hover');
+        } else {
+            $card.addClass('hover');
+        }
+    }
+</script>

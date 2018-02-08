@@ -1,0 +1,14 @@
+<div class="row">
+    <h3><a href="#" data-activates="user-profile-menu" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>Merchandise</h3>
+    <div class="divider"></div>
+</div>
+<ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s6"><a class="active" href="#test-swipe-1" (click)="valueChange(0)">Add Product</a></li>
+    <li class="tab col s6"><a href="#test-swipe-2" (click)="valueChange(1)">Delete Product</a></li>
+</ul>
+<div *ngIf="componentvalue==0" id="test-swipe-1" class="col s12 ">
+    <app-add-product></app-add-product>
+</div>
+<div *ngIf="componentvalue==1" id="test-swipe-2" class="col s12 ">
+    <app-delete-product></app-delete-product>
+</div>

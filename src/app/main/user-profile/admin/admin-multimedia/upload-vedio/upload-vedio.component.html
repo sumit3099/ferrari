@@ -1,0 +1,70 @@
+<form [formGroup]="vedioForm">
+    <div class="field">
+        <label for="Video Title">
+          Title:
+        </label>
+        <input type="text" name="title" placeholder="Video Title" required formControlName="title">
+        <div *ngIf="(vedioForm.controls.title.invalid && vedioForm.controls.title.touched)" class="col s12 small text-danger right">
+            Video SHould Have Title
+        </div>
+    </div>
+    <div class="field">
+        <label for="Vedio Description">
+         Video Description:
+        </label>
+        <textarea name="vedioDescription" placeholder="Video Description" formControlName="vedioDescription" required></textarea>
+        <div *ngIf="(vedioForm.controls.vedioDescription.invalid && vedioForm.controls.vedioDescription.touched)" class="col s12 small text-danger right">
+            Video SHould Have Description
+        </div>
+    </div>
+
+    <div class="field">
+        <label for="Vedio Link">
+          video link:
+        </label>
+
+        <input type="text" name="vedioLink" placeholder="Video Link" formControlName="vedioLink" required>
+        <div *ngIf="(vedioForm.controls.vedioLink.invalid && vedioForm.controls.vedioLink.touched)" class="col s12 small text-danger right">
+            Not A Valid Link
+        </div>
+    </div>
+    <div class="field">
+        <label for="category">
+        Category:
+        </label>
+        <input list="category" name="category" formControlName="category" placeholder="select video category">
+        <datalist id="category">
+      <option value="Pit stops"></option>
+      <option value="Crash"></option>
+      <option value="Ferrari"></option>
+      <option value="Fan"></option>
+      <option value="Car"></option>
+      <option value="Team"></option>
+      <option value="Driver"></option>
+      <option value="Circuit"></option>
+    </datalist>
+        <div *ngIf="(vedioForm.controls.category.invalid && vedioForm.controls.category.touched)" class="col s12 small text-danger right">
+            Video SHould Have Category
+        </div>
+    </div>
+
+
+
+    <div class="field">
+
+        <label for="level">
+          Level:
+        </label>
+        <select formControlName="level">
+            <option value="1" [selected] = "true">level 1</option>
+          <option value="2">level 2</option>
+          <option value="3">level 3</option>
+      </select>
+
+    </div>
+
+    <div class="box center">
+
+        <input type="submit" class="btn" value="Add Video" [disabled]="!vedioForm.valid" (click)="vedioUpload()">
+    </div>
+</form>

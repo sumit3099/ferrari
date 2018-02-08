@@ -1,0 +1,97 @@
+<div class="row" style="background-color:white;">
+  <div class="col m4 l4">
+    <ul id="slide-out" class="side-nav fixed">
+      <li class="filter">
+        <h5>Filters</h5>
+      </li>
+      <div class="divider"></div>
+      <li class="filter">
+        <h6>CATEGORY</h6>
+      </li>
+      <ul>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="shirts" value="shirt" (change)="checkCategory($event)" />
+          <label for="shirts">Shirts</label>
+        </li>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="shoes" value="shoes" (change)="checkCategory($event)" />
+          <label for="shoes">Shoes</label>
+        </li>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="caps" value="caps" (change)="checkCategory($event)" />
+          <label for="caps">Caps</label>
+        </li>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="jersey" value="jersey" (change)="checkCategory($event)" />
+          <label for="jersey">Jersey</label>
+        </li>
+      </ul>
+      <div class="divider"></div>
+      <li class="filter">
+        <h6>PRICE</h6>
+      </li>
+      <ul>
+        <li class="filter-item">
+          <p class="range-field">
+            <input type="range" id="price" min="0" max="20000" value="20000" (change)="checkPrice()" />
+          </p>
+          <span class="left">0 &#x24;</span><span class="right">{{this.priceFilter}} &#x24;</span>
+          <br><br>
+          <br><br>
+        </li>
+      </ul>
+      <div class="divider"></div>
+      <li class="filter">
+        <h6>SIZE</h6>
+      </li>
+      <ul>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="s" (change)="checkSize($event)" />
+          <label for="s">Small</label></li>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="m" (change)="checkSize($event)" />
+          <label for="m">Medium</label></li>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="l" (change)="checkSize($event)" />
+          <label for="l">Large</label></li>
+        <li class="filter-item">
+          <input type="checkbox" class="filled-in" id="xl" (change)="checkSize($event)" />
+          <label for="xl">Xtra Large</label>
+        </li>
+      </ul>
+    </ul>
+  </div>
+  <div class="col s12 m12 l8">
+    <div class="row" style="background-color:#fff;">
+      <h3>
+        F1 Store</h3>
+      <div class="col s2">
+        <a href="#" data-activates="slide-out" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>
+      </div>
+      <div class="input-field col l12 m12 s12 right">
+        <!--<select (change) = "test($event)">
+          <option  disabled selected>Sort by</option>
+          <option value="LTH" >Low To High</option>
+          <option value="HTL" >Hight To Low</option>
+        </select>-->
+        <span class="red-text" (click) = "sortLTH()" style="cursor:pointer">Price Low To High <i class="tiny material-icons">arrow_drop_down</i></span>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;
+        <span class="red-text" (click) = "sortHTL()" style="cursor:pointer">Price High To Low <i class="tiny material-icons">arrow_drop_up</i></span>
+    </div>
+    <div class="col s12" *ngIf="show">
+      <div class="divider"></div>
+      <ng-container *ngFor="let product of filteredProductsData">
+        <ng-container *ngIf="product.category == shirt || product.category == shoes || product.category == cap || product.category == jersey">
+          <ng-container *ngIf="product.size[0].small && small || product.size[0].medium && medium || product.size[0].large && large || product.size[0].xlarge && xlarge">
+            <ng-container *ngIf="product.price <= priceFilter">
+              <div class="col s12 m6 l6">
+                <app-product-card [productDetails]="product"></app-product-card>
+              </div>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+      </ng-container>
+    </div>
+
+  </div>
+</div>
+</div>

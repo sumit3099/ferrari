@@ -1,0 +1,66 @@
+/* You can add global styles to this file, and also import other style files */
+
+body {
+  font-family: 'Raleway', sans-serif;
+}
+
+/*body::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 1 1 6px rgba(102, 0, 0, 0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #000;
+  outline: 1px solid #660000;
+}*/
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #990000;
+    border-radius: 5px;
+    
+    padding:2px;
+    margin: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #660000; 
+}
+
+/* css for page header-image */
+
+.header-image {
+  background-image: url('./assets/backdrops/Download-F1-Photos-1.jpg');
+  height: 300px;
+  width:100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/*.header-image .header-overlay {
+  background: grey;
+  min-height: 300px;
+  width: 100%;
+  opacity: .5;
+  position: absolute;
+}
+
+h4{
+  position: relative;
+}*/

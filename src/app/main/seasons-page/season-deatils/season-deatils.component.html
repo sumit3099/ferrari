@@ -1,0 +1,109 @@
+<br><br>
+<div class="row" *ngIf="show">
+  <div class="col s10 offset-s1">
+    <div class="col s12 m12 l4">
+      <div class="col s6">
+        <!-- season -->
+        <div class="season-container">
+          <div class="title">
+            Season
+          </div>
+          <div class="content">
+            {{selectedRound.season}}
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        <!-- rounds -->
+        <div class="season-container">
+          <div class="title">
+            Round
+          </div>
+          <div class="content">
+            {{selectedRound.round}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col s12 m12 l4">
+      <div class="row center-align">
+        <h4>{{selectedRound.url.split("/")[selectedRound.url.split("/").length-1].replace("_"," ")}}</h4>
+      </div>
+
+      <div class="row">
+        <select class="browser-default" (change)="selectRound($event)">
+          <option> -- Select Here -- </option>
+            <option value = "{{x.round}}" *ngFor="let x of allRounds">Round : {{x.round +'  '+x.url.split('/')[x.url.split('/').length-1].replace('_',' ')}}</option>
+          </select>
+      </div>
+
+    </div>
+    <div class="col s12 m12 l4">
+      <div class="col s6">
+        <!-- season -->
+        <div class="season-container">
+          <div class="title">
+            Circuit
+          </div>
+          <div class="content">
+            <a [routerLink]="['/circuits',selectedRound.circuitId]">{{selectedRound.circuitId}}</a>
+          </div>
+        </div>
+      </div>
+      <div class="col s6">
+        <!-- rounds -->
+        <div class="season-container">
+          <div class="title">
+            Date
+          </div>
+          <div class="content">
+            {{selectedRound.date.substring(0,10)}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="row" *ngIf="show">
+  <div class="col s10 offset-s1">
+    <br><br>
+    <div class="divider"></div>
+    <br><br>
+    <div class="col s12 m12 l6">
+      <table class="responsive-table">
+        <thead>
+          <tr>
+            <th>Driver</th>
+            <th>Avg. Speed</th>
+            <th>Grid</th>
+            <th>Laps</th>
+            <th>Driver No.</th>
+            <th>Points</th>
+            <th>Position</th>
+            <th>Team</th>
+            <!--<th>Time Taken</th>-->
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let res of selectedRound.result | paginate:{itemsPerPage:4,currentPage:p}">
+            <td><a [routerLink]="['/Drivers','driver_detail',res.driverId]">{{res.driverId}}</a></td>
+            <td *ngIf="res.avgSpeed != 0">{{res.avgSpeed}}</td>
+            <td *ngIf="res.avgSpeed == 0">NA</td>
+            <td>{{res.grid}}</td>
+            <td>{{res.laps}}</td>
+            <td>{{res.number}}</td>
+            <td>{{res.points}}</td>
+            <td>{{res.position}}</td>
+            <td><a [routerLink]="['/teams',res.teamId]">{{res.teamId}}</a></td>
+          </tr>
+        </tbody>
+      </table>
+      <pagination-controls class="center" (pageChange)="p=$event"></pagination-controls>
+    </div>
+    <div class="col s12 m12 l6">
+      <p-chart type="line" [data]="LineChartData" (onDataSelect)="selectData($event)"></p-chart>
+    </div>
+  </div>
+</div>

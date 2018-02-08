@@ -1,0 +1,17 @@
+/*.input-field input[type=search] {
+  color: blue;
+}*/
+
+.input-field input[type=search]:focus {
+  border-bottom: 2px solid #660000;
+  box-shadow: none;
+  /*height:10px;*/
+}
+
+nav .input-field label i {
+  color: #660000;
+}
+
+nav{
+    background-color: #F3F3F3;
+}

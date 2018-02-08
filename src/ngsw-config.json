@@ -1,0 +1,62 @@
+{                                   
+    "index" : "/index.html", 
+    "assetGroups" : [{ 
+        "name" : "app",
+        "installMode" : "prefetch", 
+        "resources" : {
+            "files" : [
+                "/index.html"
+            ],
+            "versionedFiles" : [
+                "/*.bundle.css",
+                "/*.bundle.js",
+                "/*.chunk.js"
+            ],
+            "urls" : [ 
+            ]
+        }
+    },
+    {
+        "name" : "assets",
+        "installMode" : "lazy",
+        "updateMode" : "prefetch",
+        "resources" : {
+            "files" : [
+                "/assets/**" 
+            ]
+        }
+    }],
+    "dataGroups" : [ 
+        {
+            "name" : "api-freshness", 
+            "urls" : [
+                "/login"
+            ],
+            "cacheConfig" : {
+                "maxsize" : 10000,
+                "maxAge"  : "1h",
+                "timeout" : "10s", 
+                "strategy" : "freshness" 
+            }
+        },{
+            "name" : "api-performance",
+            "urls" : [
+                "/",
+                "/news",
+                "https://ferrarifanclubapi.azurewebsites.net/api/news",
+                "https://ferrarifanclubapi.azurewebsites.net/api/leaderboard",
+                "https://ferrarifanclubapi.azurewebsites.net/api/upcoming_races",
+                "https://ergast.com/api/f1/2017/driverStandings.json?limit=3",
+                "https://ferrarifanclubapi.azurewebsites.net/api/upcoming-events"
+            ],
+            "cacheConfig" : { 
+                "maxsize" : 10000,
+                "maxAge" : "4h",
+                "strategy" : "performance"
+            }
+        }
+        
+    ]
+    
+}
+

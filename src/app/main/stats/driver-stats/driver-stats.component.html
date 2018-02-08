@@ -1,0 +1,42 @@
+<div class="header-image valign-wrapper">
+    <div style="width:100%">
+        <h4 class="white-text center-align">Drivers</h4>
+    </div>
+</div>
+
+<div id="Drivers">
+    <div class="row">
+        <div class="col s12 m4 l4">
+            <h3>Drivers</h3>
+        </div>
+        <div class="col s12 m8 l6 right">
+            <nav style="margin-top:20px;">
+                <form>
+                    <div class="nav-wrapper ">
+                        <div class="input-field">
+                            <input id="driver-search" type="search" [value]="driverSearch" (input)="driverSearch = $event.target.value" (keyup)="filtersearch()">
+                            <label class="label-icon" for="search" style="margin-top:-10px;"><i class="material-icons">search</i></label>
+                            <i class="material-icons" (click)="resetValue()">close</i>
+                        </div>
+                    </div>
+                </form>
+            </nav>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s5 m5 l2 offset-s1 offset-m1 offset-l1" *ngFor="let driver of drivers | paginate: { itemsPerPage: 60, currentPage: p }">
+        <app-driver-card [driver]="driver"></app-driver-card><br>
+    </div>
+</div>
+
+<br><br>
+
+<pagination-controls class="center" (pageChange)="p = $event"></pagination-controls>
+
+
+<!-- Modal Structure -->
+
+
+<div class="container"></div>

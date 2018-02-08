@@ -1,0 +1,39 @@
+.season-container {
+  min-width: 150px;
+  /*height: 100px;*/
+  /*margin: 10px;*/
+  background-color: #f3f3f3;
+  border: solid 5px #660000;
+  font-weight: 1000;
+  align-content: right;
+}
+
+.title {
+  width: 100%;
+  min-height: 50px;
+  font-size: 25px;
+  background-color: #660000;
+  color: #fff;
+  text-align: center;
+}
+
+.content {
+  width: 100%;
+  min-height: 100px;
+  padding-top: 25px;
+  color: #660000;
+  background-color: #fff;
+  text-align: center;
+  font-size: 25px;
+  font-weight: 1000;
+}
+
+.season-flex {
+  display: flex;
+  width: auto;
+}
+
+a {
+  text-decoration: none;
+  /*color:#660000;*/
+}

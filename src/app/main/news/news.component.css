@@ -1,0 +1,24 @@
+.card .card-image .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 1;
+}
+
+.title {
+  font-size: 17px;
+}
+
+.author {
+  font-size: 13px;
+}
+
+.fixed-action-btn ul {
+  bottom: 45px;
+}
+
+.fixed-action-btn ul li {
+  margin-bottom: 5px;
+}

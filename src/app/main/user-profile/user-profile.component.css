@@ -1,0 +1,62 @@
+.side-nav {
+  top: auto;
+  height: auto;
+  padding: 0px;
+  padding-bottom: 5px;
+  margin-left: 0px;
+  position: relative;
+  z-index: 1;
+}
+
+nav {
+  background-color: transparent;
+  color: black;
+  box-shadow: none;
+}
+
+.row {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 0px;
+}
+
+.side-nav li>a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.side-nav .user-view>a,
+.side-nav .userView>a {
+  text-decoration: none;
+}
+
+@media screen and (max-width: 992px) {
+  .side-nav {
+    top: auto;
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+    position: fixed;
+    z-index: 998;
+  }
+  .row {
+    padding-top: 0px;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    background-color: #fff;
+  }
+  .row .col {
+    background-color: #fff;
+  }
+  i.small {
+    margin-top: 25px;
+  }
+  .side-nav li>a {
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .side-nav .user-view>a,
+  .side-nav .userView>a {
+    text-decoration: none;
+  }
+}

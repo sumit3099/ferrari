@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col s12">
+    <div class="field">
+      <input type="text" name="title" placeholder="Search Video By  Title" [value]="videoSearch" (keyup)="filtersearch($event)">
+
+    </div>
+
+    <div class="row">
+      <ng-container *ngFor="let media of multimediaVideoData">
+        <div class="col s12 m6 l6">
+          <div class="card-panel grey lighten-5 z-depth-1">
+            <div class="row valign-wrapper">
+              <div class="col s5">
+                <a [routerLink]="['/multimedia','videos',media.multimediaId]" target="_blank">
+                    <img src="{{media.thumbnail}}" alt="" class="responsive-img">
+                </a>
+              </div>
+              <div class="col s6">
+                <p class="black-text truncate">
+                  <a [routerLink]="['/multimedia','videos',media.multimediaId]" target="_blank">{{media.title}}</a>
+                </p>
+                <p class="black-text">
+                  <span class="red-text">Level :</span> {{media.level}}
+                </p>
+                <p class="black-text">
+                  <span class="red-text"> Category :</span> {{media.category}}
+                </p>
+              </div>
+              <div class="col s1">
+                <input type="checkbox" class="filled-in" id="{{media.multimediaId}}" (change)="addvedio($event)" />
+                <label for="{{media.multimediaId}}"></label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <div class="center" *ngIf="buttonValue">
+      <a class="waves-effect waves-light btn" (click)="buttonValue=false">Delete</a>
+    </div>
+    <div class="center" *ngIf="!buttonValue">
+      <a class="waves-effect waves-light btn red " (click)="buttonValue=true">Cancel</a>
+      <a class="waves-effect waves-light btn red " (click)="deleteVedios()"> confirm Delete</a>
+    </div>
+  </div>
+</div>

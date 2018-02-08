@@ -1,0 +1,88 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align">MULTIMEDIA</h4>
+  </div>
+</div>
+
+<!--  code for Images starts from here  -->
+<div class="row">
+  <div class="col s10 offset-s1">
+    <h3>Image Gallery</h3>
+    <div class="col s12 m4" *ngFor="let media of multimediaImageData">
+      <div class="card  hoverable small">
+        <div class="card-image">
+          <span class="details">
+            <span class="new badge left red z-depth-2" data-badge-caption="">{{media.category}}</span>
+          <span class="right red-text " *ngIf="media.level == 1"> <i class="material-icons">star</i> </span>
+          <span class="right red-text" *ngIf="media.level == 2"> <i class="material-icons">star</i><i class="material-icons">star</i> </span>
+          <span class="right red-text" *ngIf="media.level == 3"> <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i> </span>
+          </span>
+          <a [routerLink]="['/multimedia','images',media.multimediaId]">
+                        <img src="{{media.url}}">
+                    </a>
+        </div>
+        <div class="card-content">
+          <a [routerLink]="['/multimedia','images',media.multimediaId]">
+            <p class="title">{{media.title}}</p>
+          </a>
+          <p class="truncate left description">{{media.description}} </p>
+          <div style="position: absolute; right:5px; bottom: 5px;">
+            <div class="fixed-action-btn" style="position:absolute;right:0px;bottom:0px; z-index:1;">
+              <a class="btn-floating red">
+              <i class="material-icons">share</i>
+            </a>
+              <ul>
+                <li><a class="btn-floating red" ceiboShare [googlePlus]="{url:socialImageURL+media.multimediaId}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-gplus.png" style="width:40px;"></a></li>
+                <li><a class="btn-floating indigo" ceiboShare [facebook]="{u: socialImageURL+media.multimediaId}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-fb.png" style="width:40px;"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+    </div>
+
+  </div>
+</div>
+
+<!-- code for Videos starts from here -->
+<div class="row">
+  <div class="col s10 offset-s1">
+    <h3>Video Gallery</h3>
+    <div class="col s12 m4" *ngFor="let media of multimediaVideoData">
+      <div class="card  hoverable small">
+        <div class="card-image">
+          <span class="details">
+            <span class="new badge left red z-depth-2" data-badge-caption="">{{media.category}}</span>
+          <span class="right red-text " *ngIf="media.level == 1"> <i class="material-icons">star</i> </span>
+          <span class="right red-text" *ngIf="media.level == 2"> <i class="material-icons">star</i><i class="material-icons">star</i> </span>
+          <span class="right red-text" *ngIf="media.level == 3"> <i class="material-icons">star</i><i class="material-icons">star</i><i class="material-icons">star</i> </span>
+          </span>
+          <div class="video">
+            <img src="{{media.thumbnail}}">
+            <a [routerLink]="['/multimedia','videos',media.multimediaId]">
+                    </a>
+          </div>
+        </div>
+        <div class="card-content">
+          <a [routerLink]="['/multimedia','videos',media.multimediaId]">
+            <p class="title">{{media.title}}</p>
+          </a>
+          <p class="truncate left description">{{media.description}} </p>
+          <div style="position: absolute; right:5px; bottom: 5px;">
+            <div class="fixed-action-btn" style="position:absolute;right:0px;bottom:0px; z-index:1;">
+              <a class="btn-floating red">
+              <i class="material-icons">share</i>
+            </a>
+              <ul>
+                <li><a class="btn-floating red" ceiboShare [googlePlus]="{url:socialVideoURL+media.multimediaId}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-gplus.png" style="width:40px;"></a></li>
+                <li><a class="btn-floating indigo" ceiboShare [facebook]="{u: socialVideoURL+media.multimediaId}" (click)="pointsUpdate(5)"><img src="assets/logo/icon-fb.png" style="width:40px;"></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <br><br>
+    </div>
+  </div>
+</div>

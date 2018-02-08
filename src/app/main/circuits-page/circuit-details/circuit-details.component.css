@@ -1,0 +1,11 @@
+agm-map {
+  height: 230px;
+}
+.response-creator{
+  height:90px;
+}
+
+a{
+  cursor: pointer;
+  text-decoration: none;
+}

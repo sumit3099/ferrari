@@ -1,0 +1,40 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align">CIRCUITS</h4>
+  </div>
+</div>
+<div class="row">
+  <br>
+  <div class="col-sm-10 col-sm-offset-1">
+    <h3 class="grey-text text-darken-2">F1 Circuits</h3>
+    <div class="col-sm-9">
+      <blockquote>
+        Here you can find all names of the circuits that have been used since the beginning of Formula 1 in 1950.<br><br>        Names that are colored red are click-able. The circuits have their own dedicated page where you can find a lot of
+        information like: lap records, lap details, winners, average speed, city and graphical layout.<br><br> Each circuit
+        page contains a lot of info. You can see things like when the the first race was held, the layout, who holds the
+        fastest lap, see all podiums of each race and see an onboard lap of the circuit and lots more.<br><br> All F1 circuits
+        are sorted in alphabetical order.
+      </blockquote>
+    </div>
+    <div class="col-sm-3">
+      <img src="{{currentCircuit}}" width="100%" class="responsive-img materialboxed" data-caption="The Yas Marina Circuit is the venue for the Abu Dhabi Grand Prix. The circuit was designed by Hermann Tilke, and is situated on Yas Island, about 30 minutes from the capital of the UAE, Abu Dhabi">
+      <div class="caption center-align">
+        <i>Yas Marina Circuit</i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <br>
+  <div class="col-sm-10 col-sm-offset-1">
+
+    <div class="divider"></div>
+    <h4>List Of Circuits</h4>
+    <br>
+    <div class="col-sm-3" *ngFor="let circuit of circuitDetails  ">
+      <!--<a routerLink = "circuit-details/{{circuit.circuitId}}">{{circuit.circuitName}}</a>-->
+      <a [routerLink]="['/circuits',circuit.circuitId]">{{circuit.circuitName}}</a>
+      <!--<app-circuit-details></app-circuit-details>-->
+    </div>
+  </div>
+</div>

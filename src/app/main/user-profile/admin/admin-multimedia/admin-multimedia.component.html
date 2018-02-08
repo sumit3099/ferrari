@@ -1,0 +1,22 @@
+<div class="row">
+    <h3><a href="#" data-activates="user-profile-menu" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>MultiMedia</h3>
+    <div class="divider"></div>
+</div>
+<ul id="tabs-swipe-demo" class="tabs">
+    <li class="tab col s3"><a class="active" href="#test-swipe-1" (click)="valueChange(0)">Add Images</a></li>
+    <li class="tab col s3"><a href="#test-swipe-2" (click)="valueChange(1)">Add Videos</a></li>
+    <li class="tab col s3"><a href="#test-swipe-3" (click)="valueChange(2)">Delete Images</a></li>
+    <li class="tab col s3"><a href="#test-swipe-4" (click)="valueChange(3)">Delete Videos</a></li>
+</ul>
+<div *ngIf="componentvalue==0" id="test-swipe-1" class="col s12 ">
+    <app-upload-image></app-upload-image>
+</div>
+<div *ngIf="componentvalue==1" id="test-swipe-2" class="col s12 ">
+    <app-upload-vedio></app-upload-vedio>
+</div>
+<div *ngIf="componentvalue==2" id="test-swipe-3" class="col s12">
+    <app-delete-images></app-delete-images>
+</div>
+<div *ngIf="componentvalue==3" id="test-swipe-4" class="col s12">
+    <app-delete-videos></app-delete-videos>
+</div>

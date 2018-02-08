@@ -1,0 +1,11 @@
+label {
+    color: #ee6e73;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #660000;
+}

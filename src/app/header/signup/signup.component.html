@@ -1,0 +1,94 @@
+<!-- new signup form-->
+<br>
+<a class="waves-effect button waves-light btn" (click)="setlogin()"> <span> <i class="material-icons">arrow_back</i></span> LogIn </a>
+<div class="row custom-modal valign-wrapper">
+    <div class="col s12 m12 l12">
+        <div class="row" style="padding-top:0px; padding-bottom:0px;">
+            <div class="col s12 m12 l12 center-align">
+                <h5 class="black-text">Signup Here!</h5>
+            </div>
+        </div>
+        <form class="col s12" [formGroup]="signupForm">
+            <div class="row" style="padding-top:0px; padding-bottom:0px;">
+                <div class="input-field col s10 offset-s1">
+                    <input id="name" type="text" class="form-control" formControlName="name">
+                    <label for="name">Name</label>
+                </div>
+                <div *ngIf="(signupForm.controls.name.invalid && signupForm.controls.name.touched)" class="col s12 text-danger right">
+                    Name only Contain Alphabets space <br> length between 2 to 30 <br> could not end or start with space
+                </div>
+            </div>
+
+            <div class="row" style="padding-top:0px; padding-bottom:0px;">
+                <div class="input-field col s10 offset-s1">
+                    <input id="email" type="email" class="form-control" formControlName="email">
+                    <label for="email">Email</label>
+                </div>
+                <div *ngIf="(signupForm.controls.email.invalid && signupForm.controls.email.touched)" class="col s12 text-danger right">
+                    Email Is not Valid
+                </div>
+            </div>
+
+            <div class="row" style="padding-top:0px; padding-bottom:0px;">
+                <div class="input-field col s10 offset-s1">
+                    <input id="password" type="password" class="form-control" formControlName="pass">
+                    <label for="password">Password</label>
+                </div>
+                <div *ngIf="(signupForm.controls.pass.invalid && signupForm.controls.pass.touched)" class="col s12 text-danger right">
+                    Password needs to be more than 8 characters one uppercase Alphabet and one lower case Alphabet and one special case and 1 number
+                </div>
+            </div>
+            <!-- re pass-->
+            <div class="row" style="padding-top:0px; padding-bottom:0px;">
+                <div class="input-field col s10 offset-s1">
+                    <input id="re-password" type="password" class="form-control" formControlName="repass">
+                    <label for="re-password">Re-enter Password</label>
+                </div>
+                <div *ngIf="(signupForm.controls.pass.value != signupForm.controls.repass.value  && signupForm.controls.repass.touched)" class="col s12 text-danger right">
+                    Password Not Matching
+                </div>
+            </div>
+
+            <!--mobile no-->
+            <div class="row" style="padding-top:0px; padding-bottom:0px;">
+                <div class="input-field col s10 offset-s1">
+                    <input id="telephone" type="tel" class="form-control" formControlName="mobile">
+                    <label for="telephone">Mobile</label>
+                </div>
+                <div *ngIf="(signupForm.controls.mobile.invalid && signupForm.controls.mobile.touched)" class="col s12 text-danger right">
+                    Not A valid Mobile Number
+                </div>
+            </div>
+
+            <div class="row" style="padding-top:0px; padding-bottom:0px;">
+                <div class="input-field col s5 offset-s1">
+                    Date Of Birth :<br>
+                    <input id="date" type="date" class=" form-control" formControlName="date" (blur)="datevalidate()">
+                    <div *ngIf="validDate" class="col s12 text-danger right">
+                        Date can not be greater than today
+                    </div>
+                </div>
+
+                <div class="col s5 offset-s1">
+                    Gender :<br>
+                    <input type="radio" value="Female" id="female" formControlName="gender"><label for="female">female</label>
+                    <input type="radio" value="Male" id="male" formControlName="gender"><label for="male">male</label>
+                </div>
+                <div *ngIf="(signupForm.controls.gender.invalid && signupForm.controls.gender.touched)" class="col s12 text-danger right">
+                    Please Select The Gender
+                </div>
+            </div>
+            <!--
+      <div class="row">
+      </div>-->
+        </form>
+
+        <!--till here-->
+        <div class="row">
+            <div class="col s5 offset-s1">
+                <a class="waves-effect waves-light btn width-full" (click)="userentry()">Signup</a>
+            </div>
+        </div>
+
+    </div>
+</div>

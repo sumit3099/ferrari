@@ -1,0 +1,79 @@
+<h3>
+    <a href="#" data-activates="user-profile-menu" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>Orders</h3>
+<div class="divider"></div>
+
+<div *ngIf="orders.length==0 && gotData">
+    <h6>You Have not Ordered any Merchandise yet !</h6>
+</div>
+<div *ngIf="orders.length>0 && gotData">
+    <div *ngFor="let item of orders">
+        <div class="col s12 m6">
+
+            <div class="container">
+                <div class="card z-depth-3">
+                    <div class="card-head">
+                        <img src="{{logoURL}}" alt="logo" class="card-logo">
+                        <!--<img src="http://cdn2.bigcommerce.com/server2800/1288d/products/1071/images/4055/18000_Maroon_Model_Front_071710__79841.1420742657.300.300.png?c=2" alt="Shoe" class="product-img">-->
+                        <img src="{{item.race.thumbnail}}" alt="{{item.race.title}}" class="product-img">
+                        <span class="back-text">
+              F1
+            </span>
+                    </div>
+                    <div class="card-body">
+                        <div class="product-desc">
+                            <span class="product-title">
+                <b>{{item.race.title}}</b>
+        </span>
+                            <span class="product-caption">
+                {{item.race.category}}
+              </span>
+                        </div>
+                        <div class="product-properties">
+                            <span class="product-size">
+                <h4>Size</h4>
+                <ul class="ul-size">
+                  <li *ngIf="item.race.size[0].small">S</li>
+                  <li *ngIf="item.race.size[0].medium">M</li>
+                  <li *ngIf="item.race.size[0].large">L</li>
+                  <li *ngIf="item.race.size[0].xlarge">XL</li>
+                </ul>
+              </span>
+                            <span class="product-price">
+                &#x24;<b> {{item.race.price}}</b>
+                <!--&#8377; 23,453 /-->
+              </span>
+                            <!--<span><a class="btn buy" (click)='buy()'>
+                            <b> Buy</b>
+                            &#8377; 23,453 /
+                            </a>
+                            </span>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--<div class="card green darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">{{item.booking.productName}}</span>
+                    <div class="row">
+                        <div class="col s8">
+                            <h6>OrderID: {{item.booking._id}}</h6>
+                        </div>
+                        <div class="col s4">
+                            <h6>price : {{item.booking.sellingPrice}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s8">
+                            <h6>Address: {{item.booking.deliveryAddress}}</h6>
+                        </div>
+                        <div class="col s4">
+                            <h6>Quantity: {{item.booking.quantitly}}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+        </div>
+    </div>
+</div>

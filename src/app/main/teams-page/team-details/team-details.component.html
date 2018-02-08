@@ -1,0 +1,131 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align" *ngIf="show">{{details.name}}</h4>
+  </div>
+</div>
+<div *ngIf="!show">
+  <div class="center-align">
+    <div class="preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div *ngIf="show">
+  <div class="row">
+    <br>
+    <div class="col-sm-10 col-sm-offset-1">
+      <h3 class="grey-text text-darken-2"></h3>
+      <div class="divider"></div>
+      <div class="col-sm-6">
+        <div class="row">
+          <table>
+            <tbody>
+              <tr>
+                <td><b>Team Name</b></td>
+                <td>{{details.name}}</td>
+              </tr>
+              <tr>
+                <td><b>Team ID</b></td>
+                <td>{{details.constructorId}}</td>
+              </tr>
+              <tr>
+                <td><b>Team Nationality</b></td>
+                <td>{{details.nationality}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="row" *ngIf="show">
+           <img src="../../../../assets/images/carLogo.jpg" class="responsive-img" onerror="this.src=''">
+        </div>
+      </div>
+      <div class="col-sm-6">
+        <h5 class="center-align">{{details.name}} Team Standings</h5>
+       <p-chart type="line" [data]="LineChartData" (onDataSelect)="selectData($event)"></p-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    
+    <!--<div class="container">
+      <div *ngIf="standings.length==0" class="center-align">No Matching Records Found</div>
+      <ul class="collapsible popout" data-collapsible="accordion">
+        <li *ngFor="let item of standings">
+          <div class="collapsible-header valign-wrapper">
+            <div>
+              <h6 class="left-align">{{ item._id.season }}</h6>
+            </div>
+            <div class="col s3 offset-s3">
+              <h6 class="center-align">{{item.ConstructorStandings[0].points}} points</h6>
+            </div>
+            <span class="new badge" data-badge-caption="position">{{ item.ConstructorStandings[0].position }}</span></div>
+          <div class="collapsible-body">
+            <div class="row">
+              <div class="col s6">
+                <h6><i class="tiny material-icons">rounds</i> {{item._id.round}}</h6>
+              </div>
+              <div class="col s6">
+                <h6><i class="tiny material-icons">Wins</i> {{item.ConstructorStandings[0].wins}}</h6>
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>-->
+    <div class="col-sm-12">
+      
+    </div>
+  </div>
+  <br>
+  <h5 class="center-align">{{details.name}} Races History</h5>
+  <div class="container">
+    <div class="responsive-table table-status-sheet">
+      <table class="bordered responsive-table">
+        <thead>
+          <tr>
+            <th>season</th>
+            <th>Round</th>
+            <th>Date</th>
+            <th>CircuitId</th>
+            <th>Driver Id</th>
+            <th>Position</th>
+            <th>points</th>
+            <th>Avg Speed</th>
+            <th>Grid</th>
+            <th>Laps</th>
+            <!--<th>Time Taken</th>-->
+          </tr>
+        </thead>
+        <tbody>
+          <ng-container *ngFor="let race of races  | paginate:{itemsPerPage:5,currentPage:p}">
+            <tr *ngFor="let item of race.result ">
+              <td>{{race._id.season}}</td>
+              <td>{{race._id.round}}</td>
+              <td>{{race._id.date}}</td>
+              <td><a [routerLink]="['/circuits',race._id.circuitId]">{{race._id.circuitId}}</a></td>
+              <td><a [routerLink]="['/Drivers','driver_detail',item.driverId]">{{item.driverId}}</a></td>
+              <td>{{item.position}}</td>
+              <td>{{item.points}}</td>
+              <td>{{item.avgSpeed}}</td>
+              <td>{{item.grid}}</td>
+              <td>{{item.laps}}</td>
+              <!--<td>{{item.timeTaken}}</td>-->
+            </tr>
+          </ng-container>
+        </tbody>
+      </table><br>
+      <pagination-controls class="center" (pageChange)="p=$event"></pagination-controls>
+    </div>
+  </div><br>
+</div>

@@ -1,0 +1,38 @@
+<div class="row">
+    <h3><a href="#" data-activates="user-profile-menu" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>Bookings</h3>
+    <div class="divider"></div>
+</div>
+<div *ngIf="data.length==0 && gotData">
+    <h6>You Have not done any booking yet!</h6>
+</div>
+<div *ngIf="data.length>0 && gotData">
+    <div *ngFor="let item of data">
+        <div class="col s12 m6">
+            <div class="card green darken-4">
+                <div class="card-content white-text">
+                    <span class="card-title">{{item.race.raceName}}</span>
+                    <div class="row">
+                        <div class="col s5">
+                            <h6>Season : {{item.race.season}}</h6>
+                        </div>
+                        <div class="col s5 offset-s2">
+                            <h6>Round : {{item.race.round}}</h6>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s5">
+                            <h6>Date : {{item.race.date.substring(0,10)}}</h6>
+                        </div>
+                        <div class="col s5 offset-s2">
+                            <h6>Seat No : {{item.booking.seatNo}}</h6>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-action">
+                    <!--<a [routerLink]="['../stadiumcollaborator',item.booking.eventId]"><span class="white-text">Stadium Collaborator</span></a>-->
+                    <a [routerLink]="['../testStadium',item.booking.eventId,item.race.raceName]"><span class="white-text">Stadium Collaborator</span></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,73 @@
+h1 {
+  text-align: center;
+  font-size: 5rem;
+}
+
+form {
+  align-content: center;
+  width: 70%;
+  margin: 40px;
+}
+
+.box {
+  padding: 2rem;
+}
+
+.field {
+  margin-top: 2rem;
+}
+
+label {
+  display: inline;
+}
+
+input {
+  display: inline-block;
+  width: 70%;
+}
+
+@media all and (min-width: 35rem) and (max-width: 60rem) {
+  .box {
+    float: left;
+    width: 50%;
+  }
+  label {
+    display: block;
+  }
+  #masthead {}
+}
+
+@media all and (min-width:60rem) {
+  label {
+    display: inline;
+    width: 90px;
+    float: left;
+  }
+  .box {
+    width: 50%;
+    float: left;
+  }
+  input {
+    width: 50%;
+  }
+  #masthead {
+    padding: 9rem;
+  }
+}
+
+select {
+  display: block;
+  width: 100%;
+}
+
+label {
+  color: #ee6e73;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  color: white;
+}

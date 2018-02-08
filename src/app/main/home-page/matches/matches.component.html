@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="header-image valign-wrapper" *ngIf="showHeaderImage" id="upcomingMatches">
+    <div style="width:100%">
+      <h4 class="white-text center-align">RACES</h4>
+    </div>
+  </div>
+
+  <div class="col s10 offset-s1">
+    <h4 class="grey-text text-darken-2" id="scrollUp">Upcoming Races</h4>
+    <div class="col s12 m6 l4" *ngFor="let item of matches">
+      <app-card [match]="item"></app-card>
+    </div>
+  </div>
+  <div *ngIf="showMore" class="col s12 center-align">
+    <button type="button" class="btn btn-primary" (click)="viewMore()"><i class="material-icons">arrow_drop_down</i></button><br><br><br>
+  </div>
+  <div *ngIf="!showMore" class="col s12 center-align">
+    <button type="button" class="btn btn-primary " (click)="viewMMMM()"><i class="material-icons">arrow_drop_up</i></button><br><br><br>
+  </div>
+  <div class="container"></div>
+</div>

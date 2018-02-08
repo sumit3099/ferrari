@@ -1,0 +1,23 @@
+/*.multimedia-image{
+max-width:600px;
+}*/
+span.badge{
+    margin-left:0px;
+}
+.card-panel{
+    border-radius : 0px 20px 20px 20px;
+    padding:10px;
+}
+
+.btn-floating.btn-large {
+    font-size: 2.2rem;
+}
+a{
+    text-decoration:none;
+}
+a:hover{
+    color:#990000;
+}
+.input-field{
+    padding-bottom: 50px;
+}

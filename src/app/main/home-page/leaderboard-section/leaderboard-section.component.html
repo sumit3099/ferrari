@@ -1,0 +1,40 @@
+<div class="row" style="padding-top:100px; padding-bottom:50px;">
+  <div class="col s10 offset-s1">
+    <div class="col s12 m12 l6">
+      <h4 class="center-align">Leader Board</h4>
+      <div class="row z-depth-5" style="height:373px; overflow-y:auto; padding:10px; border-radius:5px;">
+        <ng-container *ngFor="let user of data">
+          <div class="row valign-wrapper">
+            <div class="col s2">
+              <img [src]="user.profilePicUrl" onerror="this.src='../../../../assets/images/helmet.png'" alt="fan image" class="circle responsive-img"
+                height="42" width="42">
+            </div>
+            <div class="col s10">
+              <span class="right red-text">
+            <i class="tiny material-icons" *ngIf = "user.points >= 0">stars</i>
+            <i class="tiny material-icons" *ngIf = "user.points >= 100">stars</i>
+            <i class="tiny material-icons" *ngIf = "user.points >= 500">stars</i>
+            </span>
+
+              <div class="progress">
+                <div class="determinate" [style.width]="user.points*100/max + '%'"></div>
+              </div>
+              <span class="left">{{ user.name }}</span>
+              <span class="right">{{ user.points }} points</span>
+            </div>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+
+    <div class="col s12 m12 l6">
+      <h4 class="center-align">News</h4>
+      <div class="row  z-depth-5" style="height:373px; overflow-y:auto; padding:10px; border-radius:5px;">
+        <ng-container *ngFor="let news of newsData">
+          <h6><a [routerLink]="['/news','details',news._id]" target="_blank"><i class="material-icons">open_in_new</i>  {{news.title}}</a></h6>
+          <div class="divider"></div><br><br>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>

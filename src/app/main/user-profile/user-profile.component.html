@@ -1,0 +1,35 @@
+<div class="row" style="background-color:white;">
+    <div class="col m4 l4">
+        <ul id="user-profile-menu" class="side-nav fixed">
+            <li>
+                <div class="user-view">
+                    <div class="background" [ngStyle]="{'background-color':color}">
+                    </div>
+                    <a><img [src]="profilePicUrl" onerror="this.src='https://www.atomix.com.au/media/2015/06/atomix_user31.png'" alt="profile picture" class="circle responsive-img" style="max-width:150px;"></a>
+                    <a><span class="white-text name">{{name}}</span></a>
+                    <a><span class="white-text email">{{email}}</span></a>
+                </div>
+            </li>
+            <li><a [routerLink]="['myprofile']">My Profile</a></li>
+            <li><a [routerLink]="['myorders']">My Orders</a></li>
+            <li><a [routerLink]="['mybookings']">My Bookings</a></li>
+            <li><a [routerLink]="['myrewards']">My Rewards</a></li>
+            <div class="divider">
+            </div>
+            <ng-container *ngIf="isAdmin">
+                <li><a [routerLink]="['multimedia-upload']">Multimedia</a></li>
+                <li><a [routerLink]="['Admin-Merchandise-Section']">Merchandise</a></li>
+                <li><a [routerLink]="['Admin-News-Section']">News</a></li>
+            </ng-container>
+            <li><a (click)="logOut()">Logout</a></li>
+        </ul>
+    </div>
+    <!-- Profile division -->
+    <div class="col s12 m12 l8">
+        <div class="row" style="background-color:#fff;">
+            <div class="col s12">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

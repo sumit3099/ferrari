@@ -1,0 +1,61 @@
+/*.carousel .indicators {
+  padding-left: 110px;
+}*/
+
+.container-fluid {
+  background-color: black;
+  color: #f3f3f3;
+}
+
+.card .card-content {
+  /*padding-bottom: 35px;*/
+}
+
+.card .card-image .details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  z-index: 1;
+}
+
+.fixed-action-btn ul {
+  bottom: 45px;
+}
+
+.fixed-action-btn ul li {
+  margin-bottom: 5px;
+}
+
+.card-content {
+  min-height: 68px;
+}
+
+.title {
+  font-size: 17px;
+}
+
+.description {
+  font-size: 13px;
+}
+
+a {
+  text-decoration: none;
+}
+
+.video {
+  position: relative;
+  background-color: rgb(220,220,220);
+}
+
+.video a {
+  position: absolute;
+  display: block;
+  background: url('../../../assets/logo/play.png') no-repeat;
+  background-size: 50% 50%;
+  height: 100px;
+  width: 100px;
+  top: 25%;
+  left: 40%;
+}

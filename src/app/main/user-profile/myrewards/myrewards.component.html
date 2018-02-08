@@ -1,0 +1,58 @@
+<div class="row">
+  <h3><a href="#" data-activates="user-profile-menu" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>Rewards</h3>
+  <div class="divider"></div>
+</div>
+<div class="row">
+  <!-- reward points section -->
+  <div class=" col s12 m5 l5">
+    <div class="card white darken-1 z-depth-3">
+      <div class="card-content white-text">
+        <span class="card-title center-align red-text">Rewards Points</span>
+        <p class="center-align red-text" style="font-size:30px">{{ points }}</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- level section -->
+  <div class=" col s12 m5 l5">
+    <div class="card white darken-1 z-depth-3">
+      <div class="card-content white-text">
+        <span class="card-title center-align red-text">Level</span>
+        <p class="center-align red-text" style="font-size:30px">
+          <span *ngIf="level == 'I'"><i class="small material-icons">stars</i></span>
+          <span *ngIf="level == 'II'"><i class="small material-icons">stars</i><i class="small material-icons">stars</i></span>
+          <span *ngIf="level == 'III'"><i class="small material-icons">lock_open</i><i class="small material-icons">stars</i><i class="small material-icons">stars</i><i class="small material-icons">stars</i></span>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- divider -->
+<div class="divider"></div>
+<br>
+
+<!-- level : how to boost section -->
+<div class="row center-align">
+  <div class=" col s12 m5 l5">
+    <span class="red-text"><i class="large material-icons" style="font-size:100px;">lock_open</i></span>
+    <div class="col s10 offset-s1">
+      <h5>Boost up your level</h5><br><br>
+      <div class="row"><span class="left red-text">Points less than 100</span> <span class="right red-text"><i class="material-icons">stars</i></span></div>
+      <div class="row"><span class="left red-text">Points less than 500</span> <span class="right red-text"><i class="material-icons">stars</i><i class="material-icons">stars</i></span></div>
+      <div class="row"><span class="left red-text">Points greater than 500</span> <span class="right red-text"><i class="material-icons">stars</i><i class="material-icons">stars</i><i class="material-icons">stars</i></span></div>
+    </div>
+  </div>
+
+<!-- reward points : how to earn section -->
+  <div class=" col s12 m5 l5">
+    <span class="red-text"><i class="large material-icons" style="font-size:100px;">loyalty</i></span>
+    <div class="col s10 offset-s1">
+      <h5>Earn Points</h5><br><br>
+      <div class="row"><span class="left red-text">Sharing F1 club images /Videos /News</span> <span class="right red-text">5</span></div>
+      <div class="row"><span class="left red-text">Booking Upcoming race ticket</span> <span class="right red-text">10</span></div>
+      <div class="row"><span class="left red-text">Attend Events & Meetups </span> <span class="right red-text">10</span></div>
+      <div class="row"><span class="left red-text">Purchase F1 Merchandise  </span> <span class="right red-text">10</span></div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,99 @@
+<div class="header-image valign-wrapper">
+    <div style="width:100%">
+        <h4 class="white-text center-align" *ngIf="show">{{circuitDetail.circuit.circuitName}}</h4>
+    </div>
+</div>
+<div class="row" *ngIf="show">
+    <br>
+    <div class="col-sm-10 col-sm-offset-1">
+        <!--<h3 class="grey-text text-darken-2">{{circuitDetail.circuit.circuitName}}</h3>-->
+        <div class="divider"></div>
+        <div class="col-sm-6">
+            <table>
+                <tbody>
+                    <tr>
+                        <td><b>Circuit Name</b></td>
+                        <td>{{circuitDetail.circuit.circuitName}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Circuit ID</b></td>
+                        <td>{{circuitDetail.circuit.circuitId}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Circuit Locality</b></td>
+                        <td>{{circuitDetail.circuit.Location.locality}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Circuit Country</b></td>
+                        <td>{{circuitDetail.circuit.Location.country}}</td>
+                    </tr>
+                    <tr>
+                        <td><b>Latitude, Longitude</b></td>
+                        <td>{{circuitDetail.circuit.Location.lat}}, {{circuitDetail.circuit.Location.long}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-6">
+            <br>
+            <div class="z-depth-5" style="min-height:10px;">
+                <agm-map [latitude]="circuitDetail.circuit.Location.lat" [longitude]="circuitDetail.circuit.Location.long" [mapTypeId]="'hybrid'">
+                    <agm-marker [latitude]="circuitDetail.circuit.Location.lat" [longitude]="circuitDetail.circuit.Location.long">
+                        <agm-info-window>{{circuitDetail.circuit.circuitName}}, {{circuitDetail.circuit.Location.locality}}</agm-info-window>
+                    </agm-marker>
+                </agm-map>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row" *ngIf="show">
+    <br>
+    <div class="col-sm-10 col-sm-offset-1">
+        <div class="col-sm-6">
+            <img src="{{circuitImage}}" class="responsive-img materialboxed" onerror="this.src='https://ferrarifanclubapi.azurewebsites.net/circuit_images/montjuic_Copy.png'">
+        </div>
+        <div class="col-sm-6">
+            <blockquote>
+                <p id="desc" class="grey-text text-darken-1">
+                    <!--{{ circuitDetail.circuit.desc }}-->
+                </p>
+            </blockquote>
+        </div>
+    </div>
+</div>
+<div class="divider"></div>
+<div class="row" *ngIf="show">
+    <div class="col-sm-10 col-sm-offset-1">
+        <h3 class="grey-text text-darken-2">Previous F1 Winners</h3>
+        <table class="responsive-table bordered highlight hoverable">
+            <thead>
+                <tr>
+                    <th>Year</th>
+                    <th>Race</th>
+                    <th>Date</th>
+                    <th class="response-creator">Driver</th>
+                    <th class="response-creator">Team</th>
+                    <th class="response-creator">Laps</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let details of circuitDetail.result | paginate:{itemsPerPage:5,currentPage:p}">
+                    <td><a>{{details.season}}</a></td>
+                    <td><a>{{details.season}} {{circuitDetail.circuit.circuitName}}</a></td>
+                    <td>{{details.date.substring(0,10)}}</td>
+                    <td>
+                        <a [routerLink]="['/Drivers','driver_detail',details.result[0].driverId]">{{details.result[0].driverId}}</a><br>
+                        <a [routerLink]="['/Drivers','driver_detail',details.result[1].driverId]">{{details.result[1].driverId}}</a><br>
+                        <a [routerLink]="['/Drivers','driver_detail',details.result[2].driverId]">{{details.result[2].driverId}}</a></td>
+                    <td>
+                        <a [routerLink]="['/teams',details.result[0].teamId]">{{details.result[0].teamId}}</a><br>
+                        <a [routerLink]="['/teams',details.result[1].teamId]">{{details.result[1].teamId}}</a><br>
+                        <a [routerLink]="['/teams',details.result[2].teamId]">{{details.result[2].teamId}}</a></td>
+                    <td>{{details.result[0].laps}}<br>{{details.result[0].laps}}<br>{{details.result[0].laps}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <br>
+        <pagination-controls class="center" (pageChange)="p=$event"></pagination-controls>
+    </div>
+</div>

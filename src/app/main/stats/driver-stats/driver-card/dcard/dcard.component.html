@@ -1,0 +1,68 @@
+<div class="row">
+  <br>
+  <div class="col-sm-10 col-sm-offset-1">
+    <h3 class="grey-text text-darken-2">{{ driver }}</h3>
+    <div class="divider"></div>
+    <div class="col-sm-8">
+      <table>
+        <tbody>
+          <tr>
+            <td><b>Name :</b></td>
+            <td>{{ personaldetails.givenName }} {{ personaldetails.familyName }}</td>
+          </tr>
+          <tr>
+            <td><b>D.O.B </b></td>
+            <td *ngIf="show">{{ personaldetails.dateOfBirth.substring(0,10) }}</td>
+          </tr>
+          <tr>
+            <td><b>Team </b></td>
+            <td>
+              <a [routerLink]="['/teams',driverRaceDetail.team]">{{driverRaceDetail.team}}</a>
+            </td>
+
+            <td><b>Total No. of Races  :</b></td>
+            <td> {{ driverRaceDetail.races }}</td>
+          </tr>
+          <tr>
+            <td><b>Max AvgSpeed </b></td>
+            <td *ngIf = "driverRaceDetail.maxAvgSpeed == 0">NA</td>
+            <td *ngIf = "driverRaceDetail.maxAvgSpeed > 0">{{ driverRaceDetail.maxAvgSpeed}} mph</td>
+
+
+            <td><b>Total No.of Points  :</b></td>
+            <td> {{ driverRaceDetail.totalPoint }}</td>
+          </tr>
+          <tr>
+            <td><b>Nationality</b></td>
+            <td>{{personaldetails.nationality}}</td>
+          </tr>
+          <tr>
+            <td><b>Races</b></td>
+            <td colspan="3"><span *ngFor="let tracks of driverRaceDetail.track ">{{tracks}} Grand Prix, </span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-4">
+      <div>
+        <app-driver-image *ngIf="show" [driverURL]="personaldetails.url"></app-driver-image>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <br>
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="col-sm-6">
+      <p-chart type="bar" [data]="data"></p-chart>
+    </div>
+    <div class="col-sm-6">
+      <blockquote>
+
+        <p id="desc" class="grey-text text-darken-1">
+        </p>
+      </blockquote>
+    </div>
+  </div>
+</div>

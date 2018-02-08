@@ -1,0 +1,53 @@
+<div class="row">
+    <h3><a href="#" data-activates="user-profile-menu" class="hide-on-large-only button-collapse"><i class="small material-icons">filter_list</i></a>Profile</h3>
+    <div class="divider"></div>
+</div>
+<div class="row valign-wrapper">
+    <div class="col s12 m3 l3">
+        <img src="{{_data.profilePicUrl}}" onerror="this.src='https://www.atomix.com.au/media/2015/06/atomix_user31.png'" alt="profile picture" class="circle responsive-img" style="max-width:150px;">
+        <div class="col s12 l12 m12" style="padding-top:25px;">
+            <div *ngIf="!isAdmin" class="row">
+                <b>User Level :</b>
+                <span class="center-align red-text" style="font-size:30px">
+          <span *ngIf="_data.level == 'I'"><i class="tiny material-icons">stars</i></span>
+                <span *ngIf="_data.level == 'II'"><i class="tiny material-icons">stars</i><i class="tiny material-icons">stars</i></span>
+                <span *ngIf="_data.level == 'III'"><i class="tiny material-icons">lock_open</i><i class="tiny material-icons">stars</i><i class="tiny material-icons">stars</i><i class="tiny material-icons">stars</i></span>
+                </span>
+            </div>
+            <div *ngIf="!isAdmin" class="row">
+                <b>Reward Points :</b> <span class="red-text" style="font-size:20px;"><i class="tiny material-icons">loyalty</i>{{_data.points}}</span>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m9 l9">
+        <table>
+            <thead>
+                <tr>
+                    <th colspan="2">Personal Details</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>Name :</b></td>
+                    <td>{{_data.name}}</td>
+                </tr>
+                <tr>
+                    <td><b>Gender / DOB :</b></td>
+                    <td>{{_data.gender}} / {{_data.dob}}</td>
+                </tr>
+                <tr>
+                    <td><b>Country :</b></td>
+                    <td>{{_data.country}}</td>
+                </tr>
+                <tr>
+                    <td><b>Email :</b></td>
+                    <td>{{_data.email}}</td>
+                </tr>
+                <tr>
+                    <td><b>Mob No. :</b></td>
+                    <td>+91 - {{_data.phoneNo}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

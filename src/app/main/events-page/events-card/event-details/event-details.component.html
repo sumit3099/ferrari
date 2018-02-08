@@ -1,0 +1,46 @@
+<div class="row">
+    <div class="col s10 offset-s1">
+        <div class="row">
+            <h4 *ngIf="show">{{eventDetails.title}}</h4>
+            <div class="divider"></div>
+        </div>
+        <div class="row">
+            <div class="col s12 m6 l6">
+                <blockquote>
+                    <p id="desc" class="grey-text text-darken-1">
+                    </p>
+                </blockquote>
+            </div>
+            <div class="col s12 m6 l6">
+                <div class="z-depth-5">
+
+                    <img src="{{imgURL}}" class="responsive-img z-depth-2">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col s12 m6 l6" *ngIf="show">
+                <blockquote>
+                    <span class="red-text"><i class="tiny material-icons">date_range</i> {{eventDetails.date.substring(0,10)}}</span><br>
+                    <span class="red-text"><i class="tiny material-icons">access_time</i> {{eventDetails.date.substring(11,19)}}</span><br>
+                    <span class="red-text"><i class="tiny material-icons">location_city</i> {{eventDetails.location.locality}}, {{eventDetails.location.country}}</span><br><br>
+                    <a class=" btn " (click)="booking('Accept')">Accept</a>
+                    <a class=" btn " (click)="booking('Reject')">Reject</a>
+                    <a class=" btn " (click)="booking('Tentative')">Tentative</a>
+                </blockquote>
+            </div>
+            <div class="col s12 m6 l6" *ngIf="show">
+                <div class="z-depth-5">
+                    <agm-map [latitude]="eventDetails.location.lat" [longitude]="eventDetails.location.long" [mapTypeId]="'hybrid'">
+                        <agm-marker [latitude]="eventDetails.location.lat" [longitude]="eventDetails.location.long">
+                            <agm-info-window>{{eventDetails.location.locality}}, {{eventDetails.location.country}}</agm-info-window>
+                        </agm-marker>
+                    </agm-map>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

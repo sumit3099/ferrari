@@ -1,0 +1,17 @@
+{
+    "short_name" : "FerrariFanClub",
+    "name" : "Ferrari Fan Club",
+    "start_url" : "/",
+    "theme_color" : "red",
+    "background_color" : "#27a967",
+    "display" : "standalone",
+    "orientation" : "portrait",
+    "icons" : [
+        {
+            "src" : "/assets/logo/logo-dummy.png",
+            "sizes" : "512x512",
+            "type" : "image/png"
+        }
+    ]
+}
+

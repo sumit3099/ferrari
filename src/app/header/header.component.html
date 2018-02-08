@@ -1,0 +1,121 @@
+<!-- Main Navigation bar -->
+<div class="navbar-fixed">
+  <nav>
+    <div class="nav-wrapper">
+      <a routerLink="" class="brand-logo"><img src="../../assets/logo/logo-dummy.png"></a>
+      <a href="#" data-activates="ferrari-f1" class="button-collapse"><i class="material-icons">menu</i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></li>
+        <li><a class="dropdown-button" data-activates="dropdown-events">Upcoming<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" data-activates="dropdown-statistics">F1 Statistics<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a class="dropdown-button" data-activates="dropdown-history">F1 History<i class="material-icons right">arrow_drop_down</i></a></li>
+        <li><a routerLink="news">News</a></li>
+        <li><a routerLink="merchandise">F1 Store</a></li>
+        <li><a routerLink="multimedia">Multimedia</a></li>
+        <li *ngIf="_data.isLoggedIn"><a routerLink="user-profile/myprofile"><img src="{{_data.profilePicUrl}}" onerror="this.src='https://www.atomix.com.au/media/2015/06/atomix_user31.png'" alt="{{_data.name}}" title="{{_data.name}}" class="circle responsive-img" style="max-width:30px;"></a></li>
+        <li *ngIf="!_data.isLoggedIn"><a class=" modal-trigger" href="#modal-login"><i class="material-icons">account_circle</i></a></li>
+      </ul>
+      <ul class="right show-on-medium-and-up">
+        <li *ngIf="_data.isLoggedIn"><a routerLink="user-profile/myprofile" class="button-collapse right"><img src="{{_data.profilePicUrl}}" onerror="this.src='https://www.atomix.com.au/media/2015/06/atomix_user31.png'" alt="{{_data.name}}" title="{{_data.name}}" class="circle responsive-img" style="max-width:30px;" ></a></li>
+        <li *ngIf="!_data.isLoggedIn"><a class="modal-trigger button-collapse right" href="#modal-login"><i class="material-icons">account_circle</i></a></li>
+      </ul>
+    </div>
+  </nav>
+</div>
+
+<!-- Main navbar collpsed form starts here -->
+<ul id="slide-out" class="side-nav" id="ferrari-f1">
+  <li>
+    <div class="user-view">
+      <div class="background" style="background-color:#660000;">
+        <!--put image instead bgcolor-->
+      </div>
+      <a routerLink="">
+        <h4 class="white-text">Menu</h4>
+        <br><br>
+      </a>
+    </div>
+  </li>
+  <!--<li><a class=" modal-trigger" href="#modal-login">Login / Signup</a></li>-->
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header" style="margin-left:15px;">Upcoming</a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a routerLink="matches">Races</a></li>
+            <li><a routerLink="upcoming-events">Events</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header" style="margin-left:15px;">F1 Statistics</a>
+        <div class="collapsible-body">
+          <ul>
+            <!--<li><a routerLink="">F1 Results</a></li>-->
+            <li><a routerLink="teams">F1 Teams</a></li>
+            <li><a routerLink="Drivers">F1 Drivers</a></li>
+            <li><a routerLink="circuits">F1 Circuits</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li class="no-padding">
+    <ul class="collapsible collapsible-accordion">
+      <li>
+        <a class="collapsible-header" style="margin-left:15px;">F1 History</a>
+        <div class="collapsible-body">
+          <ul>
+            <li><a routerLink="f1-history">F1 History</a></li>
+            <li><a routerLink="f1-club-history">F1 Club History</a></li>
+            <li><a routerLink="seasons-history">F1 Seasons History</a></li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </li>
+  <li><a routerLink="news">News</a></li>
+  <li><a routerLink="merchandise">F1 Store</a></li>
+  <li><a routerLink="multimedia">Multimedia</a></li>
+</ul>
+<!-- Main navbar collpsed form ends here -->
+
+<!-- Modal for login -->
+<div id="modal-login" class="modal">
+  <div *ngIf="signup==='login'">
+    <app-login (event)="setSignUp($event)"></app-login>
+  </div>
+  <div *ngIf="signup==='signup'">
+    <app-signup (event)="setSignUp($event)"></app-signup>
+  </div>
+  <div *ngIf="signup==='forget'">
+    <app-forget-password (event)="setSignUp($event)"></app-forget-password>
+  </div>
+</div>
+
+<!-- Upcoming Event/races dropdown -->
+<ul id="dropdown-events" class="dropdown-content">
+  <li><a routerLink="matches">Races</a></li>
+  <li><a routerLink="upcoming-events">Events</a></li>
+</ul>
+
+<!-- Statistics dropdown -->
+<ul id="dropdown-statistics" class="dropdown-content">
+  <!--<li><a routerLink="">F1 Results</a></li>-->
+  <li><a routerLink="teams">F1 Teams</a></li>
+  <li><a routerLink="Drivers">F1 Drivers</a></li>
+  <li><a routerLink="circuits">F1 Circuits</a></li>
+</ul>
+
+
+<!-- History dropdown -->
+<ul id="dropdown-history" class="dropdown-content">
+  <li><a routerLink="f1-history">F1 History</a></li>
+  <li><a routerLink="f1-club-history">F1 Club History</a></li>
+  <li><a routerLink="seasons-history">F1 Seasons History</a></li>
+</ul>

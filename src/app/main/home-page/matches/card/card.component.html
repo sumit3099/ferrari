@@ -1,0 +1,14 @@
+<div class="card z-depth-3 hoverable">
+  <div class="card-image valign-wrapper" style="height:250px;">
+    <img class="materialboxed responsive-img" src="{{imgURL}}" onerror="this.src='https://ferrarifanclubapi.azurewebsites.net/circuit_images/montjuic_Copy.png'"
+      style="height:200px;">
+  </div>
+  <div class="card-content">
+    <span class="card-title truncate">{{ match.raceName }}</span>
+    <span class="left"><i class="material-icons">date_range</i> {{match.date.substring(0,10)}}</span>
+    <span class="right"><i class="material-icons">location_on</i><a [routerLink]="['/circuits',match.circuitId]">{{match.circuitId}}</a></span>
+  </div>
+  <div class="card-action center">
+    <a class=" btn red white-text" (click)="booking()">Buy Ticket</a>
+  </div>
+</div>

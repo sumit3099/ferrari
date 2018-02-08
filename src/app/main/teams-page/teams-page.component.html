@@ -1,0 +1,37 @@
+<div class="header-image valign-wrapper">
+  <div style="width:100%">
+    <h4 class="white-text center-align">F1 Teams</h4>
+  </div>
+</div>
+<div class="row">
+  <br>
+  <div class="col-sm-10 col-sm-offset-1">
+    <h3 class="grey-text text-darken-2">F1 Teams</h3>
+    <div class="col-sm-9">
+      <blockquote>
+        Here you can find all the names of teams that have been part of F1 since the beginning of Formula 1 in 1950.<br><br>Since
+        the 1981 season the FIA have required that Formula One entrants own the intellectual rights to the chassis that they
+        enter, and so the terms "entrant" and "constructor", and hence also "team", have become synonymous.<br><br> Names
+        that are colored red are click-able. The teams have their own dedicated page where you can find a lot of information
+        like: team standing, team details, team drivers, etc.
+      </blockquote>
+    </div>
+    <div class="col-sm-3">
+      <img src="../../../../assets/images/team_image.png" width="100%" class="responsive-img materialboxed">
+      <div class="caption center-align">
+        <i>Teams</i>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <br>
+  <div class="col-sm-10 col-sm-offset-1">
+    <div class="divider"></div>
+    <br>
+    <h5 class="center-align">List of Teams</h5><br>
+    <div class="col-sm-3" *ngFor="let team of teamsDetails">
+      <a routerLink="{{team.constructorId}}">{{team.name}}</a>
+  </div>
+</div>
+</div>
